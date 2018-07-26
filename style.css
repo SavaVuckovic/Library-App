@@ -14,7 +14,6 @@ body {
 }
 
 .container {
-  display: flex;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -69,6 +68,44 @@ nav button:hover {
   color: #fff;
 }
 
+.book {
+  padding: 8px;
+  border-bottom: 1px solid #bbb;
+}
+
+.book h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.book p {
+  margin: 8px 0;
+}
+
+.book span {
+  font-weight: bold;
+  color: #1c2541;
+}
+
+.book button {
+  padding: 6px 10px 3px;
+  font-size: 14px;
+  background: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+.book .remove {
+  color: #ad0909;
+  border: 1.5px solid #ad0909;
+  margin-left: 8px;
+}
+
+.book .update-status {
+  color: #1c2541;
+  border: 1.5px solid #1c2541;
+}
+
 .modal {
   position: fixed;
   z-index: 1;
@@ -82,7 +119,7 @@ nav button:hover {
 
 .modal-content {
   background: #fff;
-  width: 55%;
+  width: 40%;
   margin: 200px auto 0;
   animation-name: modalopen;
   animation-duration: 0.7s;

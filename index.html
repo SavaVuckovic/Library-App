@@ -17,12 +17,20 @@
     </div>
   </nav>
 
-  <!-- Book List -->
-  <main>
-    <div class="container">
+  <!-- Book List --> 
+  <div class="container">
+    <h2>Planning to Read</h2>
+    <hr>
+    <div id="planning"></div>
 
-    </div>
-  </main>
+    <h2>Currently Reading</h2>
+    <hr>
+    <div id="reading"></div>
+
+    <h2>Finished Reading</h2>
+    <hr>
+    <div id="finished"></div>
+  </div>
 
   <!-- Modal -->
   <div class="modal">
@@ -45,7 +53,7 @@
 
           <div class="form-group">
             <label for="status">Status</label>
-            <select name="status" id="book-status">
+            <select name="status">
               <option value="1">planning to read</option>
               <option value="2">currently reading</option>
               <option value="3">finished reading</option>
