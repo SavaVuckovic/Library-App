@@ -32,7 +32,29 @@
         <span class="modal-close">&times;</span>
       </div>
       <div class="modal-body">
-        <h1>MODAL CONTENT</h1>
+        <form id="new-book-form">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" name="author" required>
+          </div>
+
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" id="book-status">
+              <option value="1">planning to read</option>
+              <option value="2">currently reading</option>
+              <option value="3">finished reading</option>
+            </select>
+          </div>
+
+          <button type="submit">Create</button>
+          <div class="clearfix"></div>
+        </form>
       </div>
     </div>
   </div>
