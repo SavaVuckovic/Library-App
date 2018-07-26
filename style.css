@@ -4,3 +4,116 @@ body {
   padding: 0;
   font-family: 'Nunito', sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 75vw;
+  }
+}
+
+nav {
+  padding: 12px;
+  background: #1c2541;
+  color: #fff;
+}
+
+nav .container {
+  display: flex;
+}
+
+nav h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+nav button {
+  margin-left: auto;
+  border: 2px solid #5bc0be;
+  font-weight: bold;
+  font-size: 15px;
+  color: #5bc0be;
+  background: #1c2541;
+  padding: 8px 16px;
+}
+
+nav button:hover {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  width: 55%;
+  margin: 200px auto 0;
+  animation-name: modalopen;
+  animation-duration: 0.7s;
+  box-shadow: 0 2px 4px 0 #ddd, 0 3px 12px 0;
+}
+
+@keyframes modalopen{
+  from{ opacity: 0}
+  to {opacity: 1}
+}
+
+.modal-header {
+  padding: 8px 12px;
+  background: #1c2541;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h2 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #5bc0be;
+}
+
+.modal-close {
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+}
+
+.modal-close:hover {
+  color: #ad0909;
+}
+
+.modal-body {
+  padding: 10px 10px 15px;
+}
