@@ -18,7 +18,7 @@ function Book(title, author, status) {
 }
 
 // update book status
-Book.prototype.updateStatus = status => {
+Book.prototype.updateStatus = function(status) {
   this.status = status;
 }
 
@@ -76,14 +76,14 @@ function renderBooks() {
     removeBookBtn.innerHTML = 'Remove Book';
     bookElement.appendChild(removeBookBtn);
     // add event listeners to buttons
-    const status = parseInt(book.status, 10);
     updateStatusBtn.addEventListener('click', () => {
-      updateBookStatus(index, status);
+      updateBookStatus(index, book.status);
     });
     removeBookBtn.addEventListener('click', () => {
       removeBook(index);
     });
     // decide where to put the book
+    const status = parseInt(book.status, 10);
     if (status === 1) {
       planningToRead.appendChild(bookElement);
     } else if (status === 2) {
@@ -102,6 +102,20 @@ function createBook(title, author, status) {
 
 function updateBookStatus(index, currentStatus) {
   toggleModal(updateStatusModal);
+  let newStatus = currentStatus;
+  // listen on buttons to capture updated status
+  const statusButtons = document.querySelectorAll('.status-btn');
+  statusButtons.forEach(btn => {
+    // add event listener
+    btn.addEventListener('click', () => {
+      // update the status inside a library array
+      newStatus = btn.dataset.status;
+      library[index].updateStatus(newStatus);
+      // close modal and render books
+      toggleModal(updateStatusModal);
+      renderBooks();
+    });
+  });
 }
 
 function removeBook(index) {
