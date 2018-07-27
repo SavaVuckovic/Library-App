@@ -159,6 +159,23 @@ nav button:hover {
   padding: 10px;
 }
 
+#update-status-modal button {
+  width: 100%;
+  display: block;
+  padding: 8px 12px 4px;
+  border: 2px solid #1c2541;
+  background: #fff;
+  color: #1c2541;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+#update-status-modal button:hover {
+  border: 2px solid #5bc0be;
+  color: #5bc0be;
+}
+
 .form-group {
   margin-bottom: 8px;
   display: flex;

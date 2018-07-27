@@ -1,7 +1,9 @@
 // select important DOM elements
 const newBookBtn = document.querySelector('#add-book');
-const modal = document.querySelector('.modal');
-const close = document.querySelector('.modal-close');
+const newBookModal = document.querySelector('#new-book-modal');
+const closeBookModal = document.querySelector('#close-book-modal');
+const updateStatusModal = document.querySelector('#update-status-modal');
+const closeStatusModal = document.querySelector('#close-status-modal');
 const form = document.querySelector('#new-book-form');
 const planningToRead = document.querySelector('#planning');
 const currentlyReading = document.querySelector('#reading');
@@ -99,7 +101,7 @@ function createBook(title, author, status) {
 }
 
 function updateBookStatus(index, currentStatus) {
-  console.log(`Current status ${currentStatus}`);
+  toggleModal(updateStatusModal);
 }
 
 function removeBook(index) {
@@ -108,7 +110,7 @@ function removeBook(index) {
 }
 
 // show/hide modal
-function toggleModal() {
+function toggleModal(modal) {
   if (modal.style.display !== 'block') {
     modal.style.display = 'block';
   } else {
@@ -116,11 +118,19 @@ function toggleModal() {
   }
 }
 
-// open modal on 'Add New Book' button click
-newBookBtn.addEventListener('click', toggleModal);
+// open new book modal on 'Add New Book' button click
+newBookBtn.addEventListener('click', () => {
+  toggleModal(newBookModal);
+});
 
-// close modal on close button click
-close.addEventListener('click', toggleModal);
+// close new book modal on close button click
+closeBookModal.addEventListener('click', () => {
+  toggleModal(newBookModal);
+});
+
+closeStatusModal.addEventListener('click', () => {
+  toggleModal(updateStatusModal);
+});
 
 // new book form is submitted
 form.addEventListener('submit', (e) => {
@@ -137,7 +147,7 @@ form.addEventListener('submit', (e) => {
   e.target.elements['author'].value = '';
   e.target.elements['status'].value = '1';
   // close modal & render books
-  toggleModal();
+  toggleModal(newBookModal);
   renderBooks();
 });
 

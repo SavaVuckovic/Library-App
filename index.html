@@ -32,12 +32,12 @@
     <div id="finished"></div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal">
+  <!-- New Book Modal -->
+  <div class="modal" id="new-book-modal">
     <div class="modal-content">
       <div class="modal-header">
         <h2>Create New Book</h2>
-        <span class="modal-close">&times;</span>
+        <span class="modal-close" id="close-book-modal">&times;</span>
       </div>
       <div class="modal-body">
         <form id="new-book-form">
@@ -63,6 +63,21 @@
           <button type="submit">Create</button>
           <div class="clearfix"></div>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Book Status Modal -->
+  <div class="modal" id="update-status-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Update Book Status</h2>
+        <span class="modal-close" id="close-status-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <button id="1">Planning to Read</button>
+        <button id="2">Currently Reading</button>
+        <button id="3">Finished Reading</button>
       </div>
     </div>
   </div>
