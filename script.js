@@ -7,6 +7,7 @@ const planningToRead = document.querySelector('#planning');
 const currentlyReading = document.querySelector('#reading');
 const finishedReading = document.querySelector('#finished');
 
+
 // book constructor
 function Book(title, author, status) {
   this.title = title;
@@ -14,38 +15,47 @@ function Book(title, author, status) {
   this.status = status;
 }
 
-// array that holds all of the books
-// const library = [];
-// TESTING
-const library = [
-  {
-    title: 'Test Title 1',
-    author: 'Test Author 1',
-    status: 1
-  },
-  {
-    title: 'Test Title 2',
-    author: 'Test Author 2',
-    status: 2
-  },
-  {
-    title: 'Test Title 3',
-    author: 'Test Author 3',
-    status: 3
-  },
-  {
-    title: 'Test Title 4',
-    author: 'Test Author 4',
-    status: 1
-  },
-]
+// update book status
+Book.prototype.updateStatus = status => {
+  this.status = status;
+}
 
-// loop through library and render books in the DOM
-function render() {
-  library.forEach(book => {
+// array that holds all of the books
+const library = [
+  // {
+  //   title: 'Test Title 1',
+  //   author: 'Test Author 1',
+  //   status: 1
+  // },
+  // {
+  //   title: 'Test Title 2',
+  //   author: 'Test Author 2',
+  //   status: 2
+  // },
+  // {
+  //   title: 'Test Title 3',
+  //   author: 'Test Author 3',
+  //   status: 3
+  // },
+  // {
+  //   title: 'Test Title 4',
+  //   author: 'Test Author 4',
+  //   status: 1
+  // }
+];
+
+// loop through library and render books to the DOM
+function renderBooks() {
+  // clear existing books from the DOM
+  planningToRead.innerHTML = '';
+  currentlyReading.innerHTML = '';
+  finishedReading.innerHTML = '';
+  // loop through library
+  library.forEach((book, index) => {
     // create book element
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
+    bookElement.setAttribute("data-id", index);
     // create book title
     const title = document.createElement('h3');
     title.innerHTML = book.title;
@@ -63,23 +73,38 @@ function render() {
     removeBookBtn.classList.add('remove');
     removeBookBtn.innerHTML = 'Remove Book';
     bookElement.appendChild(removeBookBtn);
+    // add event listeners to buttons
+    const status = parseInt(book.status, 10);
+    updateStatusBtn.addEventListener('click', () => {
+      updateBookStatus(index, status);
+    });
+    removeBookBtn.addEventListener('click', () => {
+      removeBook(index);
+    });
     // decide where to put the book
-    if (book.status === 1) {
+    if (status === 1) {
       planningToRead.appendChild(bookElement);
-    } else if (book.status === 2) {
+    } else if (status === 2) {
       currentlyReading.appendChild(bookElement);
-    } else if (book.status === 3) {
+    } else if (status === 3) {
       finishedReading.appendChild(bookElement);
     }
   });
 }
 
-render();
-
 // create new book
 function createBook(title, author, status) {
   const book = new Book(title, author, status);
   library.push(book);
+}
+
+function updateBookStatus(index, currentStatus) {
+  console.log(`Current status ${currentStatus}`);
+}
+
+function removeBook(index) {
+  library.splice(index, 1);
+  renderBooks();
 }
 
 // show/hide modal
@@ -111,6 +136,10 @@ form.addEventListener('submit', (e) => {
   e.target.elements['title'].value = '';
   e.target.elements['author'].value = '';
   e.target.elements['status'].value = '1';
-  // close modal
+  // close modal & render books
   toggleModal();
+  renderBooks();
 });
+
+// render books when page loads
+renderBooks();
