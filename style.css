@@ -219,3 +219,35 @@ form button {
   border: none;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 576px) {
+  .modal-content {
+    width: 90%;
+  }
+
+  .form-group input,
+  .form-group select {
+    flex: 3;
+    font-size: 13px;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  nav button {
+    border: 1px solid #5bc0be;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .modal-content {
+    width: 65%;
+  }
+}
