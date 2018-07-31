@@ -23,28 +23,7 @@ Book.prototype.updateStatus = function(status) {
 }
 
 // array that holds all of the books
-const library = [
-  // {
-  //   title: 'Test Title 1',
-  //   author: 'Test Author 1',
-  //   status: 1
-  // },
-  // {
-  //   title: 'Test Title 2',
-  //   author: 'Test Author 2',
-  //   status: 2
-  // },
-  // {
-  //   title: 'Test Title 3',
-  //   author: 'Test Author 3',
-  //   status: 3
-  // },
-  // {
-  //   title: 'Test Title 4',
-  //   author: 'Test Author 4',
-  //   status: 1
-  // }
-];
+const library = [];
 
 // loop through library and render books to the DOM
 function renderBooks() {
